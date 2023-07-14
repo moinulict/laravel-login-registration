@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends BaseRequest
+class VerifyRegistrationOTPRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class RegisterRequest extends BaseRequest
     public function rules()
     {
         return [
-            'email' => 'required|email:rfc,dns|unique:users,email',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required|same:password'
+            'email' => 'required|email',
+            'otp' => 'required|digits:6',
         ];
     }
 }
